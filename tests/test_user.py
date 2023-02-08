@@ -13,7 +13,6 @@ def test_create_user():
         {
             "name": "Aliaksei",
             "job": "Automation",
-            "id": "1234"
         }
     )
     assert create_user.status_code == 201
@@ -24,6 +23,14 @@ def test_create_user():
 
 
 def test_update_user():
+    create_user: Response = requests.post(
+        url=f"{base_url}api/users",
+        json=
+        {
+            "name": "Aliaksei",
+            "job": "Automation",
+        }
+    )
     update_user: Response = requests.put(
         url=f"{base_url}api/users/2",
         json=
@@ -67,6 +74,14 @@ def test_login_user():
 
 
 def test_delete_user():
+    create_user: Response = requests.post(
+        url=f"{base_url}api/users",
+        json=
+        {
+            "name": "Aliaksei",
+            "job": "Automation",
+        }
+    )
     delete_user: Response = requests.delete(
         url=f"{base_url}api/users/2",
     )
